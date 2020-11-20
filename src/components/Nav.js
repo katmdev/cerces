@@ -1,6 +1,7 @@
-import isActive from '../lib/isActive'
+import MakeActive from './MakeActive';
+import MakeSvg from './MakeSvg';
 
-const Nav = ({pathname}) => {
+const Nav = ({ pathname }) => {
     const views = [
         {
             content: 'Menus',
@@ -12,23 +13,27 @@ const Nav = ({pathname}) => {
         },
         {
             content: 'Lists',
-            page: 'recipes'
+            page: 'lists'
         }
     ]
     // if link matches component displayed, change class
     return (
-        <nav>
-            <ul className="nav">
-                <div className="nav__wrapper wrapper">
+        <nav className="topNav">
+            <div className="wrapper">
+                <ul className="nav__links">
                     {views.map((view) => {
                         return (
                             <li key={view.page}>
-                                {isActive(pathname, view, "nav__link")}
+                                <MakeActive pathname={pathname} view={view} component="nav">
+                                    <MakeSvg component="nav">
+                                        {view.content}
+                                    </MakeSvg>
+                                </MakeActive>
                             </li>
                         )
                     })}
-                </div>
-            </ul>
+                </ul>
+            </div>
         </nav>
     )
 };

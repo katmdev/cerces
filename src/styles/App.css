@@ -71,39 +71,42 @@ a {
     stroke-width: 0.5px;
     font-size: 30px;
 }
-.nav {
+.topNav {
     background-color: #333333;
     color: #F3C6BD;
+    padding: 10px 0;
     list-style-type: none;
-    padding-left: 0;
+    padding: 0;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12), 0px 5px 5px rgba(0, 0, 0, 0.2);
 }
-.nav__wrapper {
+.nav__links {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 10px 0;
 }
-.nav__link {
+.nav__svg {
     display: block;
-    padding: 15px;
-    font-size: 2rem;
     letter-spacing: 0.1rem;
     font-weight: 900;
     text-transform: uppercase;
-    text-shadow:
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000,
-    -3px 3px 0 #F3C6BD;
+}
+.nav__link {
+    display: block;
+    filter: drop-shadow( -0.2rem 0.2rem 0 #F3C6BD);
 }
 .nav__link--active {
-    color: white;
-    text-shadow:
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000,
-    -3px 3px 0 white;
+    filter: drop-shadow( -0.2rem 0.2rem 0 #FFFFFF);
+}
+.nav__link .nav__svg--text {
+    font-size: 2rem;
+    line-height: 1;
+    paint-order: stroke fill;
+    stroke: black;
+    fill: #F3C6BD;
+    stroke-width: 0.3rem;
+}
+.nav__link--active .nav__svg--text {
+    fill: white;
 }
 .landing {
     height: 100%;
@@ -144,11 +147,10 @@ footer {
 }
 .section__header {
     background: linear-gradient(180deg, #F3C6BD 22.4%, rgba(255, 255, 255, 0.1) 100%);
-    padding: 10px 0 15px 0;
-    text-align: right;
     text-transform: lowercase;
+    height: calc(3rem + 20px);
 }
-h1 {
+/* h1 {
     font-weight: 900;
     font-size: 3rem;
     letter-spacing: 10px;
@@ -159,4 +161,20 @@ h1 {
     -1px 1px 0 #000,
     1px 1px 0 #000,
     -4px 4px 0px #333333;
+} */
+
+.section__header__svg {
+    font-weight: 900;
+    letter-spacing: 0.8rem;
+}
+.section__header__svg--text {
+    font-size: 3rem;
+    display: block;
+    paint-order: stroke fill;
+    stroke: black;
+    fill: white;
+    stroke-width: 0.2rem;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow( -4px 4px 0px #333333);
 }

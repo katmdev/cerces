@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
-const isActive = (pathname, {page, content}, defaultClassName) => {
-    const link = `/${page.replace(/\s/g, '-')}`
+const isActive = ({pathname, view, component, children }) => {
+    const link = `/${view.page.replace(/\s/g, '-')}`;
         // return (
         //     pathname === path ? 
         //     `${defaultClassName} ${defaultClassName}--active` : 
@@ -9,10 +9,10 @@ const isActive = (pathname, {page, content}, defaultClassName) => {
         // )
         return (
             <Link to={link} className={pathname === link ? 
-                `${defaultClassName} ${defaultClassName}--active` : 
-                `${defaultClassName}`
+                `${component}__link ${component}__link--active` : 
+                `${component}__link`
             }>
-                {content}
+                { children }
             </Link>
         )
 }

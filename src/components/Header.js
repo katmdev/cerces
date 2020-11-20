@@ -1,17 +1,17 @@
-import isActive from '../lib/isActive'
+import MakeActive from './MakeActive';
 import { MoreHoriz, Person } from '@material-ui/icons';
 
 import Logo from '../assets/LOGO.svg';
 
-const Header = ({auth, pathname}) => {
+const Header = ({ auth, pathname }) => {
     const views = [
         {
-            content: <MoreHoriz/>,
+            content: <MoreHoriz />,
             page: 'about'
         },
         {
-            content: <Person/>,
-            path: 'settings'
+            content: <Person />,
+            page: 'settings'
         }
     ]
 
@@ -26,7 +26,9 @@ const Header = ({auth, pathname}) => {
                     views.map((view) => {
                         return (
                             <span key={view.page}>
-                                {isActive(pathname, view, "header__link")}
+                                <MakeActive pathname={pathname} view={view} component="header">
+                                    {view.content}
+                                </MakeActive>
                             </span>
                         )
                     })
